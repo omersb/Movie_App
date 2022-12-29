@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 	const navigate = useNavigate();
-	// const currentUser = { displayName: "felix franko" };
 	const currentUser = false;
 
 	return (
