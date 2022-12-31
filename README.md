@@ -11,7 +11,7 @@
 
 <br>
 
-[Click here!](https://resplendent-hamster-015c26.netlify.app)
+[Click here!](https://omersb-movie-app.netlify.app/)
 
 <br>
 
