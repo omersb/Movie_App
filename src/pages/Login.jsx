@@ -10,7 +10,6 @@ const Login = () => {
 	const handleLogin = (e) => {
 		e.preventDefault();
 		signIn(email, password, navigate);
-		// console.log(email, password);
 	};
 	const handleProviderLogin = () => {
 		signUpProvider(navigate);
