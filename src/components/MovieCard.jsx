@@ -1,6 +1,5 @@
-import React from "react";
-import { useContext } from "react";
-// import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 // import { toastWarnNotify } from "../helpers/ToastNotify";
 
@@ -10,7 +9,7 @@ const defaultImage =
 
 const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
 	const { currentUser } = useContext(AuthContext);
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const setVoteClass = (vote) => {
 		if (vote > 8) {
 			return "green";
@@ -24,10 +23,10 @@ const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
 	return (
 		<div
 			className="movie"
-			// onClick={() => {
-			// 	navigate("/details/" + id);
-			// 	!currentUser && toastWarnNotify("Please log in to see detail");
-			// }}
+			onClick={() => {
+				navigate("/details/" + id);
+				// !currentUser && toastWarnNotify("Please log in to see detail");
+			}}
 		>
 			<img
 				loading="lazy"
