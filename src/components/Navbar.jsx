@@ -7,10 +7,12 @@ import { AuthContext } from "../context/AuthContext";
 const Navbar = () => {
 	const navigate = useNavigate();
 	const { currentUser } = useContext(AuthContext);
+
 	//* with custom hook
 	// const { currentUser } = useAuthContext();
 	// const currentUser = { displayName: 'felix franko' };
 	// const currentUser = false;
+
 	return (
 		<div>
 			<nav className="navbar navbar-expand-lg ">
