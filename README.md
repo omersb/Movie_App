@@ -11,7 +11,7 @@
 
 <br>
 
-[Click here!](https://resplendent-hamster-015c26.netlify.app/login)
+[Click here!](https://resplendent-hamster-015c26.netlify.app)
 
 <br>
 
