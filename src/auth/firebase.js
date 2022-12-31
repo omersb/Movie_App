@@ -2,7 +2,10 @@ import { initializeApp } from "firebase/app";
 import {
 	createUserWithEmailAndPassword,
 	getAuth,
+	onAuthStateChanged,
 	signInWithEmailAndPassword,
+	signOut,
+	updateProfile,
 } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -22,9 +25,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth();
+const auth = getAuth(app);
 
-export const createUser = async (email, password, navigate) => {
+export const createUser = async (email, password, navigate, displayName) => {
 	//? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
 	try {
 		let userCredential = await createUserWithEmailAndPassword(
@@ -32,11 +35,14 @@ export const createUser = async (email, password, navigate) => {
 			email,
 			password
 		);
+		//? kullanıcı profilini güncellemek için kullanılan firebase metodu
+		await updateProfile(auth.currentUser, {
+			displayName: displayName,
+		});
+
 		navigate("/");
 		console.log(userCredential);
-	} catch (err) {
-		console.log(err);
-	}
+	} catch (err) {}
 };
 
 //* https://console.firebase.google.com/
@@ -51,8 +57,27 @@ export const signIn = async (email, password, navigate) => {
 			password
 		);
 		navigate("/");
+
+		// sessionStorage.setItem('user', JSON.stringify(userCredential.user));
 		console.log(userCredential);
 	} catch (err) {
 		console.log(err);
 	}
 };
+
+export const userObserver = (setCurrentUser) => {
+	//? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
+	onAuthStateChanged(auth, (user) => {
+		if (user) {
+			setCurrentUser(user);
+		} else {
+			// User is signed out
+			setCurrentUser(false);
+		}
+	});
+};
+
+export const logOut = () => {
+	signOut(auth);
+};
+

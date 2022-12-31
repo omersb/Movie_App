@@ -10,10 +10,11 @@ const Login = () => {
 	const handleLogin = (e) => {
 		e.preventDefault();
 		signIn(email, password, navigate);
+		// console.log(email, password);
 	};
-	const handleProviderLogin = () => {
-		signUpProvider(navigate);
-	};
+	// const handleProviderLogin = () => {
+	// 	signUpProvider(navigate);
+	// };
 
 	return (
 		<div className="d-flex justify-content-center">
@@ -49,7 +50,10 @@ const Login = () => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</div>
-					<div className="link" onClick={() => forgotPassword(email)}>
+					<div
+						className="link"
+						// onClick={() => forgotPassword(email)}
+					>
 						Forgot Password?
 					</div>
 					<input
@@ -60,7 +64,7 @@ const Login = () => {
 				</form>
 				<button
 					className="btn btn-primary form-control"
-					onClick={handleProviderLogin}
+					// onClick={handleProviderLogin}
 				>
 					Continue with Google
 				</button>
