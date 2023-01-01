@@ -18,8 +18,9 @@
 <h2>Libraries and Technologies I use</h2>
 
 * ReactJS, 
-* Rooter, 
+* Router, 
 * Bootstrap,
 * Firebase,
+* Toastify,
 
 ![MovieApp](https://github.com/omersb/Movie_App/blob/master/movie-app.gif?raw=true)
