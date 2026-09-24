@@ -4,7 +4,7 @@ A React movie discovery application powered by **The Movie Database (TMDB) API**
 
 ## Live demo
 
-https://omersb-movie-app.netlify.app/
+https://movie-app-omersb.vercel.app/
 
 ## Features
 
